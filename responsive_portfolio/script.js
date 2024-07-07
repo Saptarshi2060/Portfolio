@@ -26,3 +26,28 @@ projectContainers.forEach(container => {
         openProjectLink(projectName);
     });
 });
+
+// Function to zoom profile photo
+function zoomProfilePhoto() {
+    const img = document.getElementById('profile-img');
+    img.style.transform = 'scale(1.5)';
+    setTimeout(() => {
+        img.style.transform = 'scale(1)';
+    }, 3000); // 3 seconds zoom effect
+}
+
+// Function to add animation to the "Hello, I'm Saptarshi Biswas" text
+document.addEventListener("DOMContentLoaded", () => {
+    const highlightText = document.querySelector(".highlight");
+
+    highlightText.addEventListener("mouseover", () => {
+        highlightText.style.transition = "transform 0.3s, box-shadow 0.3s";
+        highlightText.style.transform = "scale(1.1)";
+        highlightText.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.5)";
+    });
+
+    highlightText.addEventListener("mouseout", () => {
+        highlightText.style.transform = "scale(1)";
+        highlightText.style.boxShadow = "none";
+    });
+});
