@@ -10,7 +10,9 @@
 <body>
     <header>
         <div class="container">
-            <h1>Hello, I'm <span class="highlight">Saptarshi Biswas</span></h1>
+            <div class="intro-box">
+                <h1>Hello, I'm <span class="highlight">Saptarshi Biswas</span></h1>
+            </div>
             <p>Frontend Developer</p>
             <div class="buttons">
                 <a href="path/to/your/cv.pdf" class="btn">Download CV</a>
@@ -45,24 +47,24 @@
         <section id="projects">
             <div class="container">
                 <h2>Projects</h2>
-                <div class="project">
+                <div class="project" onclick="openProjectLink('Voice Assistant')">
                     <h3>Voice Assistant</h3>
                     <p>This Python program implements a voice-controlled assistant similar to Amazon Alexa. 
                         It allows users to interact via voice commands to perform various tasks such as controlling OS, playing music on YouTube,
                          retrieving information from Wikipedia, fetching weather updates, and more.
                         </p>
                 </div>
-                <div class="project">
+                <div class="project" onclick="openProjectLink('File Converter Web Application')">
                     <h3>File Converter Web Application</h3>
                     <p>This is a Flask-based web application for converting various file types such as PDFs, Word documents, images, Excel files, and data frames (JSON) to different formats.
                          The application provides endpoints for each conversion type and serves a frontend interface for user interaction.</p>
                 </div>
-                <div class="project">
+                <div class="project" onclick="openProjectLink('Task Management Tool')">
                     <h3>Task Management Tool</h3>
                     <p>Engineered a ReactJS and MongoDB-powered to-do list application, ensuring seamless task management with
                         real-time updates. Implemented features for task manipulation with emphasis on responsive design.</p>
                 </div>
-                <div class="project">
+                <div class="project" onclick="openProjectLink('YouTube Downloader')">
                     <h3>YouTube Downloader</h3>
                     <p>YouTube Downloader is a web application designed to facilitate downloading YouTube videos
                          with a sleek and intuitive interface inspired by Netflix.
