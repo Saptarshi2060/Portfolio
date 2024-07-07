@@ -12,6 +12,7 @@ const projectLinks = {
 const openProjectLink = (projectName) => {
     if (projectLinks.hasOwnProperty(projectName)) {
         window.open(projectLinks[projectName], '_blank');
+        playClickSound(); // Play sound on click
     } else {
         console.error(`No GitHub link found for ${projectName}`);
     }
@@ -25,6 +26,7 @@ projectContainers.forEach(container => {
         const projectName = container.querySelector('h3').textContent.trim();
         openProjectLink(projectName);
     });
+    container.style.cursor = 'pointer'; // Ensure cursor changes to pointer on hover
 });
 
 // Function to zoom profile photo
@@ -34,6 +36,7 @@ function zoomProfilePhoto() {
     setTimeout(() => {
         img.style.transform = 'scale(1)';
     }, 3000); // 3 seconds zoom effect
+    playClickSound(); // Play sound on click
 }
 
 // Function to add animation to the "Hello, I'm Saptarshi Biswas" text
@@ -49,5 +52,32 @@ document.addEventListener("DOMContentLoaded", () => {
     highlightText.addEventListener("mouseout", () => {
         highlightText.style.transform = "scale(1)";
         highlightText.style.boxShadow = "none";
+    });
+
+    // Add click sound to "Hello, I'm Saptarshi Biswas" text
+    highlightText.addEventListener("click", () => {
+        playClickSound();
+    });
+});
+
+// Function to play click sound
+function playClickSound() {
+    const audio = new Audio('new-notification-7-210334.mp3'); // Replace with your sound file path
+    audio.play();
+}
+
+// Add click sound to education and skills sections (assuming they have clickable elements)
+const educationSections = document.querySelectorAll('#education .content-box, #skills .content-box');
+educationSections.forEach(section => {
+    section.addEventListener('click', () => {
+        playClickSound();
+    });
+});
+
+// Add click sound to LinkedIn, GitHub, and email icons
+const socialIcons = document.querySelectorAll('.icon-link');
+socialIcons.forEach(icon => {
+    icon.addEventListener('click', () => {
+        playClickSound();
     });
 });
