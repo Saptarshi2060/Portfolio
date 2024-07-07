@@ -29,15 +29,36 @@ projectContainers.forEach(container => {
     container.style.cursor = 'pointer'; // Ensure cursor changes to pointer on hover
 });
 
-// Function to zoom profile photo
-function zoomProfilePhoto() {
+// Function to rotate image clockwise or counterclockwise
+const rotateImage = (img, direction, angle, duration) => {
+    img.style.transition = `transform ${duration}s ease`;
+    img.style.transform = `rotate${direction}(${angle}deg)`;
+};
+
+// Function to handle profile photo rotation and image change
+const handleProfilePhotoClick = () => {
     const img = document.getElementById('profile-img');
-    img.style.transform = 'scale(1.5)';
+    const currentImage = img.src.split('/').pop(); // Get current image filename
+    const newImage = currentImage === 'IMG-20240603-WA0328.jpg' ? 'Myfirstdesign.png' : 'IMG-20240603-WA0328.jpg'; // Toggle image
+
+    rotateImage(img, 'cw', 360, 1); // Clockwise rotation
     setTimeout(() => {
-        img.style.transform = 'scale(1)';
-    }, 3000); // 3 seconds zoom effect
-    playClickSound(); // Play sound on click
+        img.src = newImage; // Change image source after rotation
+        playClickSound('wheel-spin-click-slow-down-101152.mp3'); // Play sound on image change
+        rotateImage(img, 'ccw', 360, 1); // Counterclockwise rotation
+    }, 1000); // 1 second for each rotation
+};
+
+// Function to play click sound
+function playClickSound(soundFile) {
+    const audio = new Audio(soundFile); // Replace with your sound file path
+    audio.play();
 }
+
+// Add click event listener to profile photo
+const profileImg = document.getElementById('profile-img');
+profileImg.addEventListener('click', handleProfilePhotoClick);
+
 
 // Function to add animation to the "Hello, I'm Saptarshi Biswas" text
 document.addEventListener("DOMContentLoaded", () => {
