@@ -194,3 +194,25 @@ footer {
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
+.social-icons {
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.icon-link {
+    display: inline-block;
+    margin-right: 1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.icon-link img {
+    width: 20px; 
+    height: 20px; 
+    border-radius: 50%; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); 
+}
+
+.icon-link:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8); 
+}
